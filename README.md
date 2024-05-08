@@ -1,6 +1,9 @@
 # Truy vấn Pig Latin
 
-## Tải và xem nội dung file dữ liệu: [books.xlsx](books.xlsx)
+## Tải và xem nội cấu trúc bằng file excel: [books.xlsx](data/books.xlsx)
+## Tải và xem nội cấu trúc bằng file csv: [books.xlsx](data/books.csv)
+
+
 
 ## Sau khi crawl dữ liệu nên xuất ra file excel có cấu trúc các trường cách nhau bởi dấu '$' như sau:
 
