@@ -1,7 +1,7 @@
 # Truy vấn Pig Latin
 
 ## Tải và xem nội cấu trúc bằng file excel: [books.xlsx](data/books.xlsx)
-## Tải và xem nội cấu trúc bằng file csv: [books.xlsx](data/books.csv)
+## Tải và xem nội cấu trúc bằng file csv: [books.csv](data/books.csv)
 
 
 
