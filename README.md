@@ -249,6 +249,12 @@ total_books_by_type = FOREACH type_of_books GENERATE group, COUNT(books) AS tota
 ```
 DUMP total_books_by_type;
 ```
+### 21. Lọc ra sách có giá bằng X hoặc Y
+```
+filter_books_XY = FILTER books BY (price == 51.77) or (price == 50.1);
+```
+DUMP filter_books_XY;
+
 
 ## Tham khảo thêm tại trang web:
 
