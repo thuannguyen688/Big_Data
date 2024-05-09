@@ -1,6 +1,6 @@
 # MAPREDUCE
 
-- ### File hướng dẫn: [Map_reduce.pdf](Map_reduce.pdf)
+- ### File hướng dẫn: [Map_reduce.pdf](./Map_Reduce.pdf)
 
 # TRUY VẤN PIG LATIN
 
