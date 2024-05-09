@@ -10,17 +10,17 @@
 
 ## Yêu cầu:
 
-- Sau khi crawl dữ liệu nên xuất ra file excel có cấu trúc các trường cách nhau bởi dấu `$` như sau:
+### 1. Sau khi crawl dữ liệu nên xuất ra file excel có cấu trúc các trường cách nhau bởi dấu `$` như sau:
 
-  ```bash
-  title$img_url$rating$price$status$desc$upc$product_type$price_excl$price_incl$tax$availability$number_of_reviews$type_of_book
-  ```
+```bash
+title$img_url$rating$price$status$desc$upc$product_type$price_excl$price_incl$tax$availability$number_of_reviews$type_of_book
+```
 
-- Để chạy được các lệnh hdfs và pig thì cần chạy lệnh sau:
+### 2. Để chạy được các lệnh hdfs và pig thì cần chạy lệnh sau:
 
-  ```bash
-  start-all.sh
-  ```
+```bash
+start-all.sh
+```
 
 ## Chuẩn bị:
 
