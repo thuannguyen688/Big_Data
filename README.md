@@ -54,7 +54,10 @@ books = LOAD '/books/books.csv' USING PigStorage('$') AS (title:chararray, img_u
 ### 2. Đếm số lượng sách
 
 ```
-book_count = FOREACH books GENERATE COUNT(title) AS total_books;
+grouped_books = GROUP books ALL;
+```
+```
+book_count = FOREACH grouped_books GENERATE COUNT(books) AS total_books;
 ```
 
 ```
