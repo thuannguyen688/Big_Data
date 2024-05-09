@@ -253,7 +253,10 @@ DUMP total_books_by_type;
 ```
 filter_books_XY = FILTER books BY (price == 51.77) or (price == 50.1);
 ```
+
+```
 DUMP filter_books_XY;
+```
 
 
 ## Tham khảo thêm tại trang web:
