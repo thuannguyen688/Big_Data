@@ -11,9 +11,6 @@ class BooksCrawlSpider(scrapy.Spider):
     allowed_domains = ["books.toscrape.com"]
     start_urls = ["https://books.toscrape.com/"]
 
-
-
-
     def start_requests(self):
         yield scrapy.Request(url="https://books.toscrape.com/", callback=self.parse)
 
@@ -26,7 +23,6 @@ class BooksCrawlSpider(scrapy.Spider):
             item["rating"] = book.xpath('//p[contains(@class, "star-rating")]/@class')[index].get().split()[-1]
             item["price"] = float(book.xpath('//p[@class="price_color"]/text()')[index].get()[1:])
             item["status"] = book.xpath('//p[contains(@class,"instock")]/text()[normalize-space()]')[index].get().strip()
-
             # yield item
 
             # Lấy nội dung bên trong từng quyển sách
@@ -53,6 +49,7 @@ class BooksCrawlSpider(scrapy.Spider):
         item["price_incl"] = float(table[3][1:])
         item["tax"] = float(table[4][1:])
         # item["availability"] = table[5]
+        # Lấy số lượng sách còn lại
         match = re.search(r'\d+', table[5])
         item["availability"] = int(match.group())
         item["number_of_reviews"] = int(table[6])

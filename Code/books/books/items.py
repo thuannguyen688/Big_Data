@@ -7,6 +7,24 @@ import scrapy
 
 
 class BooksItem(scrapy.Item):
+    """
+    Đại diện cho một mục sách được scrap từ một trang web.
+    Thuộc tính:
+        title: Tiêu đề của sách.
+        img_url: URL của hình ảnh sách.
+        rating: Đánh giá của sách.
+        price: Giá của sách.
+        status: Tình trạng của sách.
+        desc: Mô tả về sách.
+        upc: Mã sản phẩm phổ quát (UPC) của sách.
+        product_type: Loại sản phẩm.
+        price_excl: Giá của sách không bao gồm thuế.
+        price_incl: Giá của sách bao gồm thuế.
+        tax: Thuế được áp dụng cho sách.
+        availability: Sự có sẵn của sách.
+        number_of_reviews: Số lượng đánh giá cho sách.
+        type_of_book: Thể loại.
+    """
     title = scrapy.Field()
     img_url = scrapy.Field()
     rating = scrapy.Field()

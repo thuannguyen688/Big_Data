@@ -8,11 +8,9 @@ class ToCSV:
     def __init__(self):
         self.file = open('books.csv', 'w', newline='', encoding='utf-8')
         self.csv_writer = csv.writer(self.file, delimiter="$")
-
         # Ghi tên các cột vào file CSV
-        # columns = ['title', 'img_url', 'rating', 'price', 'status', 'desc', 'upc', 'product_type', 'price_excl', 'price_incl', 'tax', 'availability', 'number_of_reviews']
+        # columns = ['title', 'img_url', 'rating', 'price', 'status', 'desc', 'upc', 'product_type', 'price_excl', 'price_incl', 'tax', 'availability', 'number_of_reviews', 'type_of_book']
         # self.csv_writer.writerow(columns)
-
     def process_item(self, item, spider):
         # Ghi dữ liệu vào file CSV
         self.csv_writer.writerow([
@@ -130,8 +128,6 @@ class MongoDBPipeline:
         except Exception as e:
             raise e
 
-
-
 class PostgresPipeline:
     def __init__(self):
         self.connect = psycopg2.connect(
@@ -162,7 +158,6 @@ class PostgresPipeline:
             database='booksdb'
         )
         self.cursor = self.connect.cursor()
-
         # Tạo bảng books trong cơ sở dữ liệu booksdb
         self.cursor.execute("""
             CREATE TABLE IF NOT EXISTS books (
