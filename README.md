@@ -7,6 +7,7 @@
 - ### File code crawl data và mapreduce: [Code](Code/)
 - ### Tải và xem nội cấu trúc bằng file excel: [books.xlsx](Data/books.xlsx)
 - ### Tải và xem nội cấu trúc bằng file csv: [books.csv](Data/books.csv)
+- ### Tải và xem nội cấu trúc bằng file json: [books.json](Data/books.json)
 
 ## Yêu cầu:
 
