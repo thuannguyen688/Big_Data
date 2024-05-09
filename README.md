@@ -1,12 +1,12 @@
 # MAPREDUCE
 
-- ### File hướng dẫn: [Map_reduce](Map_reduce.pdf)
+- ### File hướng dẫn: [Map_reduce.pdf](Map_reduce.pdf)
 
 # TRUY VẤN PIG LATIN
 
-- ### File code crawl data và mapreduce: [file](Code/)
-- ### Tải và xem nội cấu trúc bằng file excel: [books.xlsx](data/books.xlsx)
-- ### Tải và xem nội cấu trúc bằng file csv: [books.csv](data/books.csv)
+- ### File code crawl data và mapreduce: [Code](Code/)
+- ### Tải và xem nội cấu trúc bằng file excel: [books.xlsx](Data/books.xlsx)
+- ### Tải và xem nội cấu trúc bằng file csv: [books.csv](Data/books.csv)
 
 ## Yêu cầu:
 
