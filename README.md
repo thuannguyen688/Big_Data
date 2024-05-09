@@ -14,7 +14,7 @@ title$img_url$rating$price$status$desc$upc$product_type$price_excl$price_incl$ta
 ## 1. Đọc dữ liệu từ tệp books.csv với dấu phân cách là '$' và chuyển về các trường chính xác
 
 ```
-books = LOAD '/books/books.csv' USING PigStorage(',') AS (title:chararray, img_url:chararray, rating:chararray, price:float, status:chararray, desc:chararray, upc:chararray, product_type:chararray, price_excl:float, price_incl:float, tax:float, availability:int, number_of_reviews:int, type_of_book:chararray);
+books = LOAD '/books/books.csv' USING PigStorage('$') AS (title:chararray, img_url:chararray, rating:chararray, price:float, status:chararray, desc:chararray, upc:chararray, product_type:chararray, price_excl:float, price_incl:float, tax:float, availability:int, number_of_reviews:int, type_of_book:chararray);
 ```
 
 ### 2.Đếm số lượng sách
