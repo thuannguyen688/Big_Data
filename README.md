@@ -1,23 +1,58 @@
-# Truy vấn Pig Latin
+# MAPREDUCE
 
-## Tải và xem nội cấu trúc bằng file excel: [books.xlsx](data/books.xlsx)
-## Tải và xem nội cấu trúc bằng file csv: [books.csv](data/books.csv)
+- ### File hướng dẫn: [Map_reduce](Map_reduce.pdf)
 
+# TRUY VẤN PIG LATIN
 
+- ### File code crawl data và mapreduce: [file](Code/)
+- ### Tải và xem nội cấu trúc bằng file excel: [books.xlsx](data/books.xlsx)
+- ### Tải và xem nội cấu trúc bằng file csv: [books.csv](data/books.csv)
 
-## Sau khi crawl dữ liệu nên xuất ra file excel có cấu trúc các trường cách nhau bởi dấu '$' như sau:
+## Yêu cầu:
+
+- Sau khi crawl dữ liệu nên xuất ra file excel có cấu trúc các trường cách nhau bởi dấu `$` như sau:
+
+  ```bash
+  title$img_url$rating$price$status$desc$upc$product_type$price_excl$price_incl$tax$availability$number_of_reviews$type_of_book
+  ```
+
+- Để chạy được các lệnh hdfs và pig thì cần chạy lệnh sau:
+
+  ```bash
+  start-all.sh
+  ```
+
+## Chuẩn bị:
+
+### 1. Lưu dữ liệu từ local lên hdfs
+
+```
+hdfs dfs -put books.csv /books
+```
+
+### 2. Kiểm tra dữ liệu đã được lưu lên hdfs chưa
+
+```
+hdfs dfs -ls /books
+```
+
+## Hướng dẫn:
+
+### Để chạy được lệnh pig thì cần chạy lệnh sau:
 
 ```bash
-title$img_url$rating$price$status$desc$upc$product_type$price_excl$price_incl$tax$availability$number_of_reviews$type_of_book
+pig -x mapreduce
 ```
 
-## 1. Đọc dữ liệu từ tệp books.csv với dấu phân cách là '$' và chuyển về các trường chính xác
+### 1. Đọc dữ liệu từ tệp books.csv với dấu phân cách là `$` và chuyển về các trường chính xác
 
 ```
-books = LOAD '/books/books.csv' USING PigStorage(',') AS (title:chararray, img_url:chararray, rating:chararray, price:float, status:chararray, desc:chararray, upc:chararray, product_type:chararray, price_excl:float, price_incl:float, tax:float, availability:int, number_of_reviews:int, type_of_book:chararray);
+
+books = LOAD '/books/books.csv' USING PigStorage('$') AS (title:chararray, img_url:chararray, rating:chararray, price:float, status:chararray, desc:chararray, upc:chararray, product_type:chararray, price_excl:float, price_incl:float, tax:float, availability:int, number_of_reviews:int, type_of_book:chararray);
+
 ```
 
-### 2.Đếm số lượng sách
+### 2. Đếm số lượng sách
 
 ```
 book_count = FOREACH books GENERATE COUNT(title) AS total_books;
@@ -27,7 +62,7 @@ book_count = FOREACH books GENERATE COUNT(title) AS total_books;
 DUMP book_count;
 ```
 
-### 3.Lọc các sách có giá trên 50
+### 3. Lọc các sách có giá trên 50
 
 ```
 expensive_books = FILTER books BY (price > 50.0);
@@ -212,3 +247,7 @@ total_books_by_type = FOREACH type_of_books GENERATE group, COUNT(books) AS tota
 ```
 DUMP total_books_by_type;
 ```
+
+## Tham khảo thêm tại trang web:
+
+- [Apache Pig Tutorial](https://www.tutorialspoint.com/apache_pig/)
