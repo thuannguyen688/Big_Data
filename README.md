@@ -118,9 +118,6 @@ DUMP popular_expensive_books;
 
 ```
 top_5_expensive_books = ORDER books BY price DESC;
-```
-
-```
 top_5_expensive_books = LIMIT top_5_expensive_books 5;
 ```
 
@@ -219,38 +216,37 @@ type_of_books = GROUP books BY type_of_book;
 DUMP type_of_books;
 ```
 
-### 18. Thể loại có nhiều sách nhất
+### 18. Tìm ra thể loại sách có số lượng sách nhiều nhất in ra tên thể loại và số lượng sách
 
 ```
-most_books = FOREACH type_of_books GENERATE group, COUNT(books) AS total_books;
-most_books = ORDER most_books BY total_books DESC;
-most_books = LIMIT most_books 1;
-```
-
-```
-DUMP most_books;
-```
-
-### 19. Thể loại có ít sách nhất
-
-```
-least_books = FOREACH type_of_books GENERATE group, COUNT(books) AS total_books;
-least_books = ORDER least_books BY total_books ASC;
-least_books = LIMIT least_books 1;
+max_books = ORDER count_books_type BY total_books DESC;
+max_books = LIMIT max_books 1;
 ```
 
 ```
-DUMP least_books;
+DUMP max_books;
 ```
 
-### 20. Tổng số sách theo thể loại
+### 19. Tìm ra thể loại sách có số lượng sách ít nhất in ra tên thể loại và số lượng sách
 
 ```
-total_books_by_type = FOREACH type_of_books GENERATE group, COUNT(books) AS total_books;
+min_books = ORDER count_books_type BY total_books ASC;
+min_books = LIMIT min_books 1;
 ```
 
 ```
-DUMP total_books_by_type;
+DUMP min_books;
+```
+
+### 20. Tính tổng sách của từng thể loại sách in ra thể loại và tổng sách
+
+```
+grouped_books_type = GROUP books BY type_of_book;
+count_books_type = FOREACH grouped_books_type GENERATE group AS type_of_book, COUNT(books) AS total_books;
+```
+
+```
+DUMP count_books_type;
 ```
 ### 21. Lọc ra sách có giá bằng X hoặc Y
 ```
@@ -259,6 +255,14 @@ filter_books_XY = FILTER books BY (price == 51.77) or (price == 50.1);
 
 ```
 DUMP filter_books_XY;
+```
+### 22. Tìm sách có title là: "A Light in the Attic"
+```
+book = FILTER books BY title == 'A Light in the Attic';
+```
+
+```
+DUMP book;
 ```
 
 
