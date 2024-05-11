@@ -118,6 +118,9 @@ DUMP popular_expensive_books;
 
 ```
 top_5_expensive_books = ORDER books BY price DESC;
+```
+
+```
 top_5_expensive_books = LIMIT top_5_expensive_books 5;
 ```
 
@@ -199,7 +202,7 @@ DUMP books_by_price_reviews;
 ### 16. Tổng tiền của tất cả sách
 
 ```
-total_price = FOREACH books GENERATE SUM(price) AS total_price;
+total_price = FOREACH (GROUP books ALL) GENERATE SUM(books.price) AS total_price;
 ```
 
 ```
