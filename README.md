@@ -264,6 +264,20 @@ book = FILTER books BY title == 'A Light in the Attic';
 ```
 DUMP book;
 ```
+### 23. Lưu data
+```
+STORE books INTO ' /myresult/books.txt ' USING PigStorage (',');
+```
+
+### 24. Kiểm tra data đã được lưu hay chưa
+```
+hdfs dfs -ls /myresult/books.txt
+```
+### 25. Đọc data đã lưu
+```
+hdfs dfs -cat /myresult/books.txt/part-*
+```
+### lưu ý: Từ 23 -> 25 làm theo đường dẫn thực tế của bài
 
 
 ## Tham khảo thêm tại trang web:
